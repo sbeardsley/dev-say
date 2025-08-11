@@ -1,0 +1,17 @@
+src/
+.git/
+.gitignore
+tsconfig.json
+*.log
+.DS_Store
+node_modules/
+.env
+.env.local
+*.ts
+!*.d.ts
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.npmrc

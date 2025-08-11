@@ -1,9 +1,12 @@
 {
-  "name": "macos-say-mcp",
+  "name": "@squirrelsoft/dev-say",
   "version": "1.0.0",
   "description": "MCP server for macOS text-to-speech using the say command",
   "main": "dist/server.js",
   "type": "module",
+  "bin": {
+    "dev-say": "./bin/cli.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
@@ -13,10 +16,24 @@
     "mcp",
     "text-to-speech",
     "macos",
-    "say"
+    "say",
+    "tts",
+    "voice",
+    "speech"
   ],
-  "author": "",
+  "author": "Scott Beardsley",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sbeardsley/dev-say.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sbeardsley/dev-say/issues"
+  },
+  "homepage": "https://github.com/sbeardsley/dev-say#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "cors": "^2.8.5",

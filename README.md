@@ -1,4 +1,4 @@
-# macOS Say MCP Server
+# @squirrelsoft/dev-say
 
 An MCP (Model Context Protocol) server that provides text-to-speech functionality using the macOS `say` command. This allows Claude Code running in a devcontainer to trigger speech synthesis on your Mac host.
 
@@ -18,9 +18,17 @@ An MCP (Model Context Protocol) server that provides text-to-speech functionalit
 
 ## Installation
 
+### Global Installation via npm
+
+```bash
+npm install -g @squirrelsoft/dev-say
+```
+
+### Local Installation from Source
+
 1. Clone this repository on your Mac host:
 ```bash
-git clone <repository-url>
+git clone https://github.com/sbeardsley/dev-say.git
 cd dev-say
 ```
 
@@ -34,13 +42,64 @@ npm install
 npm run build
 ```
 
+4. Link globally (optional):
+```bash
+npm link
+```
+
+## Quick Start
+
+After installing globally with npm, you can manage the server with these simple commands:
+
+```bash
+# Start the server (runs in background on port 8837)
+dev-say start
+
+# Stop the server
+dev-say stop
+
+# Check if server is running
+dev-say status
+
+# Restart the server
+dev-say restart
+
+# View server logs
+dev-say logs
+```
+
+The server will run in the background and automatically log to `~/.dev-say.log`.
+
 ## Usage
 
 ### Running the Server
 
+#### Using the CLI (Recommended)
+
+Once installed globally via `npm install -g @squirrelsoft/dev-say`:
+
+```bash
+# Start the server in the background
+dev-say start
+
+# Stop the server
+dev-say stop
+
+# Check server status
+dev-say status
+
+# Restart the server
+dev-say restart
+
+# View logs
+dev-say logs
+```
+
+#### Manual Mode
+
 The server supports two transport modes:
 
-#### HTTP Mode (for Devcontainer/Remote Access)
+##### HTTP Mode (for Devcontainer/Remote Access)
 ```bash
 # Default mode - runs HTTP server on port 8837
 npm start
@@ -49,7 +108,7 @@ npm start
 MCP_TRANSPORT=http PORT=8837 npm start
 ```
 
-#### Stdio Mode (Legacy)
+##### Stdio Mode (Legacy)
 ```bash
 MCP_TRANSPORT=stdio npm start
 ```
@@ -64,6 +123,13 @@ npm run dev
 #### For Claude Code in Devcontainer
 
 1. **Start the server on your Mac host:**
+
+If installed globally:
+```bash
+dev-say start
+```
+
+Or manually:
 ```bash
 cd /path/to/dev-say
 npm install
@@ -103,6 +169,13 @@ The `host.docker.internal` hostname automatically resolves to your Mac host from
 #### For Local Claude Code on Mac
 
 1. **Start the server on your Mac:**
+
+If installed globally:
+```bash
+dev-say start
+```
+
+Or manually:
 ```bash
 cd /path/to/dev-say
 npm install
@@ -227,6 +300,8 @@ curl http://localhost:8837/health
 ### Project Structure
 ```
 dev-say/
+├── bin/
+│   └── cli.js          # CLI commands (start/stop/status)
 ├── src/
 │   └── server.ts       # MCP server implementation
 ├── dist/               # Compiled JavaScript (generated)
