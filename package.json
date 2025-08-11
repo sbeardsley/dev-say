@@ -1,6 +1,6 @@
 {
   "name": "@squirrelsoft/dev-say",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for macOS text-to-speech using the say command",
   "main": "dist/server.js",
   "type": "module",
