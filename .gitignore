@@ -137,3 +137,11 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Audio output files
+*.aiff
+*.m4a
+*.wav
+
+# macOS
+.DS_Store
